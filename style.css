@@ -1,0 +1,129 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+:root {
+  --clr: #080808;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: var(--clr);
+}
+
+.navigation {
+  width: 360px;
+  height: 55px;
+  background: #ffffff;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+.icon {
+  z-index: 3;
+}
+
+.navigation ul li {
+  display: inline-block;
+  list-style: none;
+  height: 70px;
+  width: 70px;
+}
+
+.navigation ul li a {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-decoration: none;
+  width: 100%;
+  font-weight: 500;
+}
+
+.navigation ul li a .icon {
+  position: relative;
+  display: block;
+  line-height: 75px;
+  font-size: 1.5rem;
+  text-align: center;
+  transition: 0.5s;
+  color: var(--clr);
+}
+.navigation ul li.active a .icon {
+  transform: translateY(-25px);
+}
+.navigation ul li a .text {
+  position: relative;
+  color: var(--clr);
+  font-weight: 400;
+  font-size: 0.8rem;
+  letter-spacing: 0.05rem;
+  transition: 0.5s;
+  opacity: 0;
+}
+.navigation ul li.active a .text {
+  opacity: 1;
+  transform: translateY(-33px);
+}
+
+.indicator {
+  position: absolute;
+  top: -40px;
+  left: 33px;
+  width: 70px;
+  height: 70px;
+  background: #ff004f;
+  border-radius: 50%;
+  border: 6px solid var(--clr);
+  transition: 0.5s;
+  z-index: 0;
+}
+
+.indicator::before {
+  content: "";
+  position: absolute;
+  top: 58%;
+  left: -21px;
+  height: 20px;
+  width: 20px;
+  background: transparent;
+  border-top-right-radius: 90%;
+  box-shadow: 1px -8px 0 0 var(--clr);
+}
+.indicator::after {
+  content: "";
+  position: absolute;
+  top: 58%;
+  right: -21px;
+  height: 20px;
+  width: 20px;
+  background: transparent;
+  border-top-left-radius: 90%;
+  box-shadow: -1px -8px 0 0 var(--clr);
+}
+
+li:nth-child(1).active ~ .indicator {
+  transform: translateX(calc(70px * 0));
+}
+
+li:nth-child(2).active ~ .indicator {
+  transform: translateX(calc(73px * 1));
+}
+
+li:nth-child(3).active ~ .indicator {
+  transform: translateX(calc(73px * 2));
+}
+li:nth-child(4).active ~ .indicator {
+  transform: translateX(calc(74px * 3));
+}
